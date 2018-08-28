@@ -160,13 +160,15 @@ void setup() {
 void setGreyLeds(char *s, int rows)
 {
   int r;
+  int brightness;
 
   Tlc.clear();
   for (r = 0; r < rows; r++) {
     //Zero terminate the value
     s[2] = '\0';
     //Tlc.set(r, atol(s));
-    Tlc.set(r, strtol(s, NULL, 16)*16);
+    brightness = strtol(s, NULL, 16)*16;
+    Tlc.set(r, brightness ? 4095 : 0);
     //Serial.println(atol(s));
     s += 3;
 
@@ -189,7 +191,7 @@ void setGreyLeds(char *s, int rows)
 //  Tlc.update();
 //}
 
-long col_size = 5;
+long col_size = 20;
 long col_delay = 1000;
 
 void loop() {
