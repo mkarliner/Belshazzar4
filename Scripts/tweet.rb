@@ -14,7 +14,7 @@ COL_SIZE = 100
 COL_DELAY = 1500
 PORT="/dev/ttyUSB0"
 BAUD_RATE = 115200
-FONT_SIZE = 130
+FONT_SIZE = 90
 
 
 cnt = 0
@@ -78,8 +78,8 @@ sleep(1)
 while(true) do
 
 lines = []
-lines[0] = ARGV[0]
-lines[1] = ARGV[1]
+lines[0] = ARGV[0] ? ARGV[0] : " "
+lines[1] = ARGV[1] ? ARGV[1] : " "
 # ARGV.each do |file|
 #   File.open(file, "r") do |infile|
 #       while (line = infile.gets)
@@ -102,10 +102,10 @@ lines.each do |l|
   text.font_family = 'helvetica'
   text.pointsize = FONT_SIZE;
   text.gravity = Magick::NorthWestGravity
-  text.annotate(canvas, 0,0,0,0, lines[0]) {
+  text.annotate(canvas, 0,0,0,40, lines[0].upcase) {
         self.fill = 'white'
   }
-  text.annotate(canvas, 0,0,0,150, lines[1]) {
+  text.annotate(canvas, 0,0,0,170, lines[1].upcase){
         self.fill = 'white'
   }
 end
