@@ -3,7 +3,7 @@
 
 require 'rubygems'
 require 'serialport'
-require 'RMagick'
+require 'rmagick'
 include Magick
 
 sel_array = [@sp]
@@ -12,7 +12,7 @@ COLS = 256
 ROWS  = 48
 COL_SIZE = 20
 COL_DELAY = 2000
-PORT="/dev/tty.wchusbserialfa130"
+PORT="/dev/ttyUSB0"
 BAUD_RATE = 115200
 
 
